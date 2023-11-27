@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 
 
 
 export default function Navbar(props) {
   return (
     <nav
-      className="navbar navbar-expand-lg bg-body-tertiary"
+      className={`navbar navbar-expand-lg bg-body-tertiary`}
       data-bs-theme="dark"
     >
       <div className="container-fluid">
@@ -27,14 +28,14 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <Link className={`nav-link ${props.lighter}`} aria-current="page" to="Home">
                 Home
-              </a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Link
-              </a>
+            <li className={`nav-item `}>
+              <Link className={`nav-link ${props.lighter}`} to="About">
+                About
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -84,8 +85,12 @@ export default function Navbar(props) {
               Search
             </button>
           </form>
+          <div className="form-check form-switch ms-2  mt-2 text-light" > 
+  <input className="form-check-input" type="checkbox" role="switch" onClick={props.toggle} id="flexSwitchCheckDefault"/>
+  <label className="form-check-label fw-semibold fs-6 " >{props.mode}</label>
+</div>
         </div>
-      </div>
+</div>
     </nav>
 
   )
