@@ -59,8 +59,10 @@ function App() {
             }
           />
 
-          <Route path="/About" element={<About/>}
+                
+                <Route path="/About" element={<About  mode={mode}/>}
           />
+          
 
           
         </Routes>
